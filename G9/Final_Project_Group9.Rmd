@@ -13,10 +13,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ```{r}
-
+# In RStudio console
+install.packages("devtools")
+library(devtools)
+create_package("G9")
 ```
 
 
+```{r}
+
+```
 
 
 
