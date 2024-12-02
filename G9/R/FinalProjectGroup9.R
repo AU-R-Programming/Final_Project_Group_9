@@ -1,15 +1,31 @@
----
-title: "Final Project - Group 9"
-author: "Erika Richter, Indrajit Nandi, Waliu Lamidi"
-date: "`r Sys.Date()`"
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
+# Final Project 
 
-```{r}
-### Step 2: Implement Core Functionality
-### 1. Logistic regression using numerical optimization
+## created package FinalProjectGroup9.R
+
+## Installing necessary packages
+install.packages("roxygen2")
+install.packages("boot")
+install.packages("ggplot2")
+
+# setting up directory structure 
+### initializing description should look like if we use ERIKA's code:
+Package: BinaryClassOpt
+Type: Package
+Title: Logistic Regression with Numerical Optimization
+Version: 0.1.0
+Author: Your Name
+Maintainer: your.email@example.com
+Description: This package implements logistic regression for binary classification using numerical optimization.
+License: GPL-3
+
+#NAMESPACE should look like if we use ERIKA's code:
+export(logistic_regression)
+export(bootstrap_CI)
+export(confusion_matrix_metrics)
+
+# Step 2: Implement Core Functionality
+
+## 1. Logistic regression using numerical optimization
 logistic_regression <- function(X, y, tol = 1e-6, max_iter = 100) {
   # X: matrix of predictors (n x p)
   # y: response vector (n x 1)
@@ -44,11 +60,7 @@ logistic_regression <- function(X, y, tol = 1e-6, max_iter = 100) {
   return(result$par) # The estimated beta
 }
 
-```
-
-
-```{r}
-### 2. Bootstrapped Confidence Intervals
+## 2. Bootstrapped Confidence Intervals
 bootstrap_CI <- function(X, y, n_bootstrap = 20, alpha = 0.05) {
   n <- nrow(X)
   boot_betas <- matrix(NA, nrow = n_bootstrap, ncol = ncol(X))
@@ -67,11 +79,8 @@ bootstrap_CI <- function(X, y, n_bootstrap = 20, alpha = 0.05) {
   
   return(data.frame(Lower = lower, Upper = upper))
 }
-```
 
-
-```{r}
-### 3. Confusion Matrix and Evaluation Metrics
+## 3. Confusion Matrix and Evaluation Metrics
 confusion_matrix_metrics <- function(y_true, y_pred, cutoff = 0.5) {
   # y_true: actual response values (0/1)
   # y_pred: predicted probabilities (between 0 and 1)
@@ -103,5 +112,3 @@ confusion_matrix_metrics <- function(y_true, y_pred, cutoff = 0.5) {
     DiagnosticOddsRatio = dor
   ))
 }
-```
-
