@@ -1,0 +1,95 @@
+---
+title: "Logistic Regression using Numerical Optimization"
+author: "Erika Richter, Indrajit Nandi, Waliu Lamidi"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Logistic Regression using Numerical Optimization}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteAuthor{Your Name}
+---
+
+# Logistic Regression using Numerical Optimization
+
+This vignette demonstrates how to use the `BinaryClassOpt` package to perform binary classification using logistic regression with numerical optimization.
+
+## 1. Introduction
+
+The `BinaryClassOpt` package implements logistic regression for binary classification using an optimization procedure to estimate the regression coefficients. The optimization method minimizes the negative log-likelihood function, and the package provides features like bootstrapping for confidence intervals and confusion matrix evaluation.
+
+## 2. Installation
+
+To install the package from GitHub, use the following command:
+
+```{r}
+devtools::install_github("emr0075/BinaryClassOpt")
+```
+
+## 3. Example Dataset
+We will use a simulated dataset with binary outcomes (y) and predictors (X).
+
+```{r}
+set.seed(42)
+n <- 100  # number of samples
+p <- 3    # number of predictors
+
+# Simulating random predictors and binary response variable
+X <- matrix(rnorm(n * p), nrow = n, ncol = p)
+y <- rbinom(n, 1, 0.5)  # Binary outcome
+```
+
+## 4. Running logistic regression
+
+```{r}
+# Run logistic regression
+beta_hat <- logistic_regression(X, y)
+beta_hat
+```
+
+## 5. Bootstrapped Confidence Intervals
+```{r}
+# Bootstrap confidence intervals
+bootstrap_results <- bootstrap_CI(X, y, n_bootstrap = 100, alpha = 0.05)
+bootstrap_results
+
+```
+
+## 6. Confusion Matrix and Evaluation Metrics
+```{r}
+# Predicted probabilities
+p_hat <- sigmoid(X %*% beta_hat)
+
+# Calculate confusion matrix and metrics
+metrics <- confusion_matrix_metrics(y, p_hat, cutoff = 0.5)
+metrics
+```
+
+## 7. Conclusion
+```{r}
+?logistic_regression
+?bootstrap_CI
+?confusion_matrix_metrics
+```
+
+## 8. Future Work
+This package could be further enhanced by implementing additional optimization techniques, adding more metrics, or supporting multi-class classification.
+
+## 9. References
+
+### Key Sections in the Vignette:
+
+1. **Title and Metadata**: Provides details about the vignette, including the title and author.
+2. **Introduction**: Brief description of the package and its purpose.
+3. **Installation**: Instructions on how to install the package from GitHub.
+4. **Example Dataset**: Code to generate a simulated dataset for testing the functions.
+5. **Logistic Regression**: How to run the `logistic_regression` function and interpret its output.
+6. **Bootstrapped Confidence Intervals**: Usage of `bootstrap_CI` for calculating confidence intervals for coefficients.
+7. **Confusion Matrix and Metrics**: How to calculate key performance metrics using `confusion_matrix_metrics`.
+8. **Conclusion**: Recap of what the vignette covered and links to documentation for further reading.
+9. **Future Work**: Ideas for further improvements to the package.
+
+### Step 2: Building and Previewing the Vignette
+
+After creating this `.Rmd` file, you can build the vignette by running the following in the R console:
+```{r}
+devtools::build_vignettes()
+```
