@@ -1,6 +1,6 @@
 Package: binclass
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Logistic Regression using Numerical Optimization
 Version: 0.1.0
 Author: Erika Richter, Indrajit Nandi, Waliu Lamidi
 Maintainer: emr0075@auburn.edu
