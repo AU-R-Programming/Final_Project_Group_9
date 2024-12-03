@@ -2,10 +2,9 @@ Package: binclass
 Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Erika Richter, Indrajit Nandi, Waliu Lamidi
+Maintainer: emr0075@auburn.edu
+Description: R package implementing supervised binary classification using numerical optimization.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
