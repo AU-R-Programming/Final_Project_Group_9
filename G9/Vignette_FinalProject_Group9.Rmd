@@ -1,12 +1,14 @@
 ---
 title: "Logistic Regression using Numerical Optimization"
 author: "Erika Richter, Indrajit Nandi, Waliu Lamidi"
-output: rmarkdown::html_vignette
+output: rmarkdown::Final_Project_Group9
 vignette: >
   %\VignetteIndexEntry{Logistic Regression using Numerical Optimization}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteAuthor{Your Name}
+  %\VignetteAuthor{Erika Richter, Indrajit Nandi, Waliu Lamidi}
 ---
+
+## dataset: wine.csv
 
 # Logistic Regression using Numerical Optimization
 
@@ -26,6 +28,8 @@ devtools::install_github("emr0075/BinaryClassOpt")
 
 ## 3. Example Dataset
 We will use a simulated dataset with binary outcomes (y) and predictors (X).
+
+## Use wine.csv
 
 ```{r}
 set.seed(42)
@@ -75,17 +79,6 @@ This package could be further enhanced by implementing additional optimization t
 
 ## 9. References
 
-### Key Sections in the Vignette:
-
-1. **Title and Metadata**: Provides details about the vignette, including the title and author.
-2. **Introduction**: Brief description of the package and its purpose.
-3. **Installation**: Instructions on how to install the package from GitHub.
-4. **Example Dataset**: Code to generate a simulated dataset for testing the functions.
-5. **Logistic Regression**: How to run the `logistic_regression` function and interpret its output.
-6. **Bootstrapped Confidence Intervals**: Usage of `bootstrap_CI` for calculating confidence intervals for coefficients.
-7. **Confusion Matrix and Metrics**: How to calculate key performance metrics using `confusion_matrix_metrics`.
-8. **Conclusion**: Recap of what the vignette covered and links to documentation for further reading.
-9. **Future Work**: Ideas for further improvements to the package.
 
 ### Step 2: Building and Previewing the Vignette
 
