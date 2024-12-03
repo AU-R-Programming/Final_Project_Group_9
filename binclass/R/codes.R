@@ -1,6 +1,6 @@
 # Final Project
 
-## created package FinalProjectGroup9.R
+## Step 1: Created R package
 
 ## Installing necessary packages
 install.packages("roxygen2")
