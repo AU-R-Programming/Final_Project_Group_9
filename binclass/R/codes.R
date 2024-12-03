@@ -1,6 +1,6 @@
 # Final Project
 
-## Step 1: Created R package
+## Step 1: Created R package - complete (aka: binclass)
 
 ## Installing necessary packages
 install.packages("roxygen2")
