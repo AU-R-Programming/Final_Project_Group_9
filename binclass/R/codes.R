@@ -2,10 +2,10 @@
 
 ## created package FinalProjectGroup9.R
 
-# ## Installing necessary packages
-# install.packages("roxygen2")
-# install.packages("boot")
-# install.packages("ggplot2")
+## Installing necessary packages
+install.packages("roxygen2")
+install.packages("boot")
+install.packages("ggplot2")
 
 # Step 2: Implement Core Functionality
 
