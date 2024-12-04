@@ -2,10 +2,6 @@
 
 ## Step 1: Created R package - complete (aka: binclass)
 
-## Installing necessary packages
-#install.packages("roxygen2")
-#install.packages("boot")
-#install.packages("ggplot2")
 
 # Step 2: Implement Core Functionality
 
