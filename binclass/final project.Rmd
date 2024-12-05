@@ -104,3 +104,12 @@ confusion_matrix_metrics <- function(y_true, y_pred, cutoff = 0.5) {
   ))
 }
 ```
+
+
+```{r}
+covid <- read.csv("~/Documents/GitHub/Quiz2_Indrajit/covid.csv", header = TRUE, sep = ",")
+head(covid)
+
+
+```
+
