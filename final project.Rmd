@@ -68,58 +68,51 @@ ci <- bootstrap_CI(X, y, n_bootstrap = 100, alpha = 0.05)
 print(ci)
 ```
 
-Confusion Matrix and Metrics
-{r
+#Confusion Matrix and Metrics
 
-Copy code
+
 # Simulate predicted probabilities for demonstration
+
+```{r}
 set.seed(123)
 y_pred <- runif(length(y))
 
 # Compute confusion matrix and metrics
 metrics <- confusion_matrix_metrics(y, y_pred, cutoff = 0.5)
 print(metrics)
-Conclusion
-The FinalProjectGroup9 package provides robust tools for binary classification and performance evaluation using logistic regression. Use this vignette to understand its applications.
 
-
-Copy code
-
-### Steps to Include the Vignette in Your Package
-
-1. **Save the File**:
-   Save the vignette file as `vignettes/FinalProject.Rmd` in your package directory.
-
-2. **Add Vignette Support**:
-   Run the following command to set up vignettes in your package:
-
-   ```R
-   usethis::use_vignette("FinalProject")
-Build and Check: Build your package using:
-R
-
-Copy code
-devtools::build()
-Check that the vignette renders correctly by running:
-R
-
-Copy code
-devtools::build_vignettes()
-Install the Package: Install the package and view the vignette:
-R
-
-Copy code
-devtools::install()
-browseVignettes("FinalProjectGroup9")
-
-
-```{r}
+```
+#Conclusion
+#The FinalProjectGroup9 package provides robust tools for binary classification and performance evaluation using logistic regression. Use this vignette to understand its applications.
 
 
 
+<!-- ### Steps to Include the Vignette in Your Package -->
 
+<!-- 1. **Save the File**: -->
+<!--    Save the vignette file as `vignettes/FinalProject.Rmd` in your package directory. -->
 
+<!-- 2. **Add Vignette Support**: -->
+<!--    Run the following command to set up vignettes in your package: -->
 
+<!--    ```R -->
+<!--    usethis::use_vignette("FinalProject") -->
+<!-- Build and Check: Build your package using: -->
+<!-- R -->
+
+<!-- Copy code -->
+<!-- devtools::build() -->
+<!-- Check that the vignette renders correctly by running: -->
+<!-- R -->
+
+<!-- Copy code -->
+<!-- devtools::build_vignettes() -->
+<!-- Install the Package: Install the package and view the vignette: -->
+<!-- R -->
+
+<!-- Copy code -->
+<!-- devtools::install() -->
+<!-- browseVignettes("FinalProjectGroup9") -->
 
 
 
@@ -127,10 +120,6 @@ browseVignettes("FinalProjectGroup9")
 ```{r}
 crop <- read.csv("~/Documents/GitHub/Final_Project_Group_9/binclass/crop.data.csv", header = TRUE, sep = ",")
 head(crop)
-
-
-
-
 
 ```
 
