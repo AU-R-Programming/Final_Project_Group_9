@@ -7,13 +7,11 @@ date: "2024-12-05"
 
 
 ```{r}
-covid <- read.csv("~/Documents/GitHub/Quiz2_Indrajit/covid.csv", header = TRUE, sep = ",")
-head(covid)
+crop <- read.csv("~/Documents/GitHub/Final_Project_Group_9/binclass/crop.data.csv", header = TRUE, sep = ",")
+head(crop)
 
 
 ```
-
-
 
 
 
