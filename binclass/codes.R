@@ -2,9 +2,9 @@
 
 ## created package FinalProjectGroup9.R
 
-#' @import roxygen2
-#' @import boot
-#' @import ggplot2
+@import roxygen2
+@import boot
+@import ggplot2
 
 # Implement Core Functionality
 
@@ -28,7 +28,6 @@
 #' beta <- logistic_regression(X, y)
 #' print(beta)
 #' @export
-
 logistic_regression <- function(X, y, tol = 1e-6, max_iter = 100) {
   # X: matrix of predictors (n x p)
   # y: response vector (n x 1)

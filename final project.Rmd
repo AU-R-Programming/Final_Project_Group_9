@@ -24,31 +24,40 @@ vignette: >
 #First, ensure the required dataset is loaded. The dataset should be in the working directory as `crop.data.csv`.
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+#knitr::opts_chunk$set(echo = TRUE)
 library(binclass)
 ```
+
+
 #Load Data
 
 
 #Copy code
 # Load the dataset
 ```{r}
-crop_data <- read.csv("crop.data.csv")
-```
-# Preview the dataset
-head(crop_data)
-Data Preparation
-{r
+#crop_data <- read.csv("crop.data.csv")
 
-Copy code
+crop_data <- read.csv("~/Documents/GitHub/Final_Project_Group_9/binclass/crop.data.csv", header = TRUE, sep = ",")
+head(crop_data)
+
+```
+
+```{r}
+# Preview the dataset
+#head(crop_data)
+#Data Preparation
+#{r
+
+#Copy code
 # Prepare predictors (add intercept)
+
 X <- as.matrix(cbind(1, crop_data[, c("predictor1", "predictor2")])) # Adjust columns as necessary
 # Response variable
 y <- as.numeric(crop_data$response)
-Logistic Regression Using Numerical Optimization
-{r
+#Logistic Regression Using Numerical Optimization
+```
 
-Copy code
+#Copy code
 # Perform logistic regression
 beta <- logistic_regression(X, y)
 print(beta)
@@ -104,7 +113,7 @@ devtools::install()
 browseVignettes("FinalProjectGroup9")
 
 
-
+```{r}
 
 
 
