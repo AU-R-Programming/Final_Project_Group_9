@@ -37,9 +37,6 @@ library(binclass)
 ```{r}
 #crop_data <- read.csv("crop.data.csv")
 
-crop_data <- read.csv("~/Documents/GitHub/Final_Project_Group_9/binclass/crop.data.csv", header = TRUE, sep = ",")
-head(crop_data)
-
 ```
 
 ```{r}
@@ -112,27 +109,6 @@ Copy code
 devtools::install()
 browseVignettes("FinalProjectGroup9")
 
-
-```{r}
-
-
-
-
-
-
-
-
-
-
-```{r}
-crop <- read.csv("~/Documents/GitHub/Final_Project_Group_9/binclass/crop.data.csv", header = TRUE, sep = ",")
-head(crop)
-
-
-
-
-
-```
 
 
 
