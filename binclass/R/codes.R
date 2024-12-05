@@ -1,11 +1,35 @@
 # Final Project
 
-## Step 1: Created R package - complete (aka: binclass)
+## created package FinalProjectGroup9.R
 
+# ## Installing necessary packages
+# install.packages("roxygen2")
+# install.packages("boot")
+# install.packages("ggplot2")
 
 # Step 2: Implement Core Functionality
 
 ## 1. Logistic regression using numerical optimization
+
+#' Logistic Regression Using Numerical Optimization
+#'
+#' Perform logistic regression to estimate the coefficient vector (\eqn{\beta})
+#' using numerical optimization of the negative log-likelihood function.
+#'
+#' @param X A numeric matrix of predictors (dimensions: n x p).
+#' @param y A numeric vector of responses (length: n). Values must be 0 or 1.
+#' @param tol A numeric value for the convergence tolerance. Default is 1e-6.
+#' @param max_iter An integer specifying the maximum number of iterations for optimization. Default is 100.
+#' @return A numeric vector of estimated coefficients (\eqn{\beta}).
+#' @examples
+#' # Simulate data
+#' set.seed(123)
+#' X <- cbind(1, matrix(rnorm(100), ncol = 2)) # Add intercept
+#' y <- rbinom(50, size = 1, prob = 0.5)
+#' beta <- logistic_regression(X, y)
+#' print(beta)
+#' @export
+
 logistic_regression <- function(X, y, tol = 1e-6, max_iter = 100) {
   # X: matrix of predictors (n x p)
   # y: response vector (n x 1)
@@ -41,6 +65,26 @@ logistic_regression <- function(X, y, tol = 1e-6, max_iter = 100) {
 }
 
 ## 2. Bootstrapped Confidence Intervals
+
+#' Bootstrapped Confidence Intervals for Logistic Regression Coefficients
+#'
+#' Compute bootstrapped confidence intervals for the coefficients estimated
+#' from logistic regression.
+#'
+#' @param X A numeric matrix of predictors (dimensions: n x p).
+#' @param y A numeric vector of responses (length: n). Values must be 0 or 1.
+#' @param n_bootstrap An integer specifying the number of bootstrap samples. Default is 20.
+#' @param alpha A numeric value specifying the significance level. Default is 0.05.
+#' @return A data frame with lower and upper bounds of the confidence intervals.
+#' @examples
+#' # Simulate data
+#' set.seed(123)
+#' X <- cbind(1, matrix(rnorm(100), ncol = 2)) # Add intercept
+#' y <- rbinom(50, size = 1, prob = 0.5)
+#' ci <- bootstrap_CI(X, y, n_bootstrap = 100, alpha = 0.05)
+#' print(ci)
+#' @export
+
 bootstrap_CI <- function(X, y, n_bootstrap = 20, alpha = 0.05) {
   n <- nrow(X)
   boot_betas <- matrix(NA, nrow = n_bootstrap, ncol = ncol(X))
@@ -61,6 +105,24 @@ bootstrap_CI <- function(X, y, n_bootstrap = 20, alpha = 0.05) {
 }
 
 ## 3. Confusion Matrix and Evaluation Metrics
+
+#' Confusion Matrix and Classification Metrics
+#'
+#' Generate a confusion matrix and compute performance metrics for binary classification.
+#'
+#' @param y_true A numeric vector of true binary response values (length: n).
+#' @param y_pred A numeric vector of predicted probabilities (length: n).
+#' @param cutoff A numeric value specifying the cutoff for classification. Default is 0.5.
+#' @return A list containing the confusion matrix and several performance metrics.
+#' @examples
+#' # Simulate data
+#' set.seed(123)
+#' y_true <- rbinom(50, size = 1, prob = 0.5)
+#' y_pred <- runif(50)
+#' metrics <- confusion_matrix_metrics(y_true, y_pred, cutoff = 0.5)
+#' print(metrics)
+#' @export
+
 confusion_matrix_metrics <- function(y_true, y_pred, cutoff = 0.5) {
   # y_true: actual response values (0/1)
   # y_pred: predicted probabilities (between 0 and 1)
