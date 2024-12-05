@@ -98,18 +98,9 @@ browseVignettes("FinalProjectGroup9")
 
 
 
-
-
-
-
-
 ```{r}
 crop <- read.csv("~/Documents/GitHub/Final_Project_Group_9/binclass/crop.data.csv", header = TRUE, sep = ",")
 head(crop)
-
-
-
-
 
 ```
 
