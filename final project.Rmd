@@ -54,8 +54,7 @@ print(ci)
 ```
 
 ## Confusion Matrix and Metrics
-
-{r
+```{r}
 # Simulate predicted probabilities for demonstration
 set.seed(123)
 y_pred <- runif(length(y))
@@ -63,8 +62,10 @@ y_pred <- runif(length(y))
 # Compute confusion matrix and metrics
 metrics <- confusion_matrix_metrics(y, y_pred, cutoff = 0.5)
 print(metrics)
-Conclusion
-The FinalProjectGroup9 package provides robust tools for binary classification and performance evaluation using logistic regression. Use this vignette to understand its applications.
+```
+
+## Conclusion
+### The FinalProjectGroup9 package provides robust tools for binary classification and performance evaluation using logistic regression. Use this vignette to understand its applications.
 
 
 
