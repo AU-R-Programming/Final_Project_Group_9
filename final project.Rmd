@@ -1,12 +1,6 @@
 ---
-title: "final_project_group9"
-output: html_document
-date: "2024-12-05"
----
-
----
-title: "..."
-author: "..."
+title: "Final Project Group 9"
+author: "Erika Richter, Indrajit Nandi, Waliu Lamidi"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -17,58 +11,45 @@ vignette: >
 
 # Overview
 
-#This vignette demonstrates the functionality of the **FinalProjectGroup9** package, which provides tools for logistic regression using numerical optimization, bootstrapped confidence intervals, and classification performance metrics.
+### This vignette demonstrates the functionality of the **binclass** package, which provides tools for logistic regression using numerical optimization, bootstrapped confidence intervals, and classification performance metrics.
 
 ## Example: Using `crop.data.csv`
 
-#First, ensure the required dataset is loaded. The dataset should be in the working directory as `crop.data.csv`.
+### First, ensure the required dataset is loaded. The dataset should be in the working directory as `crop.data.csv`.
 
 ```{r setup, include = FALSE}
 #knitr::opts_chunk$set(echo = TRUE)
 library(binclass)
 ```
 
-
-#Load Data
-
-
-#Copy code
-# Load the dataset
+## Load the dataset
 ```{r}
 #crop_data <- read.csv("crop.data.csv")
 
 ```
 
+## Data Preperation
 ```{r}
-# Preview the dataset
-#head(crop_data)
-#Data Preparation
-#{r
-
-#Copy code
-# Prepare predictors (add intercept)
-
 X <- as.matrix(cbind(1, crop_data[, c("density", "block", "fertilizer")])) # Adjust columns as necessary
 # Response variable
 y <- as.numeric(crop_data$yield)
-#Logistic Regression Using Numerical Optimization
 ```
 
-#Copy code
-# Perform logistic regression
+## Logistic Regression Using Numerical Optimization
 ```{r}
 beta <- logistic_regression(X, y)
 print(beta)
-#Bootstrapped Confidence Intervals
-# Compute bootstrapped confidence intervals
+```
+
+## Bootstrapped Confidence Intervals
+### Compute bootstrapped confidence intervals
+```{r}
 ci <- bootstrap_CI(X, y, n_bootstrap = 100, alpha = 0.05)
 print(ci)
 ```
 
-Confusion Matrix and Metrics
-{r
-
-Copy code
+## Confusion Matrix and Metrics
+```{r}
 # Simulate predicted probabilities for demonstration
 set.seed(123)
 y_pred <- runif(length(y))
@@ -76,11 +57,12 @@ y_pred <- runif(length(y))
 # Compute confusion matrix and metrics
 metrics <- confusion_matrix_metrics(y, y_pred, cutoff = 0.5)
 print(metrics)
-Conclusion
-The FinalProjectGroup9 package provides robust tools for binary classification and performance evaluation using logistic regression. Use this vignette to understand its applications.
+```
+
+## Conclusion
+### The FinalProjectGroup9 package provides robust tools for binary classification and performance evaluation using logistic regression. Use this vignette to understand its applications.
 
 
-Copy code
 
 ### Steps to Include the Vignette in Your Package
 
@@ -95,17 +77,14 @@ Copy code
 Build and Check: Build your package using:
 R
 
-Copy code
 devtools::build()
 Check that the vignette renders correctly by running:
 R
 
-Copy code
 devtools::build_vignettes()
 Install the Package: Install the package and view the vignette:
 R
 
-Copy code
 devtools::install()
 browseVignettes("FinalProjectGroup9")
 
