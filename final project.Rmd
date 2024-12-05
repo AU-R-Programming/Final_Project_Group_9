@@ -44,8 +44,11 @@ y <- as.numeric(crop_data$yield)
 ```{r}
 beta <- logistic_regression(X, y)
 print(beta)
-#Bootstrapped Confidence Intervals
-# Compute bootstrapped confidence intervals
+```
+
+## Bootstrapped Confidence Intervals
+### Compute bootstrapped confidence intervals
+```{r}
 ci <- bootstrap_CI(X, y, n_bootstrap = 100, alpha = 0.05)
 print(ci)
 ```
