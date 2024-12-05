@@ -51,23 +51,23 @@ head(crop_data)
 #Copy code
 # Prepare predictors (add intercept)
 
-X <- as.matrix(cbind(1, crop_data[, c("predictor1", "predictor2")])) # Adjust columns as necessary
+X <- as.matrix(cbind(1, crop_data[, c("density", "block", "fertilizer")])) # Adjust columns as necessary
 # Response variable
-y <- as.numeric(crop_data$response)
+y <- as.numeric(crop_data$yield)
 #Logistic Regression Using Numerical Optimization
 ```
 
 #Copy code
 # Perform logistic regression
+```{r}
 beta <- logistic_regression(X, y)
 print(beta)
-Bootstrapped Confidence Intervals
-{r
-
-Copy code
+#Bootstrapped Confidence Intervals
 # Compute bootstrapped confidence intervals
 ci <- bootstrap_CI(X, y, n_bootstrap = 100, alpha = 0.05)
 print(ci)
+```
+
 Confusion Matrix and Metrics
 {r
 
