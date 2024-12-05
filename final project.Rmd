@@ -31,9 +31,7 @@ head(crop_data)
 
 ```
 
-## Data Preperation (add intercept)
-### Assume the dataset has a binary response variable response and predictors predictor1, predictor2, ..., predictorN.
-
+## Data Preperation
 ```{r}
 X <- as.matrix(cbind(1, crop_data[, c("density", "block", "fertilizer")])) # Adjust columns as necessary
 # Response variable
