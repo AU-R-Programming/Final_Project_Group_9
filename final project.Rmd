@@ -31,21 +31,13 @@ head(crop_data)
 
 ```
 
-## Data Preperation
+## Data Preperation (add intercept)
 ### Assume the dataset has a binary response variable response and predictors predictor1, predictor2, ..., predictorN.
 
 ```{r}
-# Preview the dataset
-#head(crop_data)
-#Data Preparation
-#{r
-
-# Prepare predictors (add intercept)
-
 X <- as.matrix(cbind(1, crop_data[, c("density", "block", "fertilizer")])) # Adjust columns as necessary
 # Response variable
 y <- as.numeric(crop_data$yield)
-
 ```
 
 ## Logistic Regression Using Numerical Optimization
