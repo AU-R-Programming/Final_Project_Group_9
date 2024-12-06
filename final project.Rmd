@@ -21,6 +21,7 @@ editor_options:
 
 ```{r setup, include = FALSE}
 #knitr::opts_chunk$set(echo = TRUE)
+library(devtools)
 library(binclass)
 ```
 
@@ -45,7 +46,6 @@ y <- as.numeric(crop_data$yield)
 
 beta <- logistic_regression(X, y)
 print(beta)
-
 
 ```
 
@@ -74,27 +74,27 @@ print(metrics)
 
 ### Steps to Include the Vignette in Your Package
 
-1. **Save the File**:
-   Save the vignette file as `vignettes/FinalProject.Rmd` in your package directory.
+<!-- 1. **Save the File**: -->
+<!--    Save the vignette file as `vignettes/FinalProject.Rmd` in your package directory. -->
 
-2. **Add Vignette Support**:
-   Run the following command to set up vignettes in your package:
+<!-- 2. **Add Vignette Support**: -->
+<!--    Run the following command to set up vignettes in your package: -->
 
-   ```R
-   usethis::use_vignette("FinalProject")
-Build and Check: Build your package using:
-R
+<!--    ```R -->
+<!--    usethis::use_vignette("FinalProject") -->
+<!-- Build and Check: Build your package using: -->
+<!-- R -->
 
-devtools::build()
-Check that the vignette renders correctly by running:
-R
+<!-- devtools::build() -->
+<!-- Check that the vignette renders correctly by running: -->
+<!-- R -->
 
-devtools::build_vignettes()
-Install the Package: Install the package and view the vignette:
-R
+<!-- devtools::build_vignettes() -->
+<!-- Install the Package: Install the package and view the vignette: -->
+<!-- R -->
 
-devtools::install()
-browseVignettes("FinalProjectGroup9")
+<!-- devtools::install() -->
+<!-- browseVignettes("FinalProjectGroup9") -->
 
 
 
