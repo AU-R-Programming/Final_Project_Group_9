@@ -79,7 +79,8 @@ print(metrics)
 # Remove the pre existing file 
 #file.remove("_pkgdown.yml") 
 #usethis::use_pkgdown()
-#pkgdown::build_site()
+pkgdown::build_site()
+
 ```
 
 ## Running Shiny app
