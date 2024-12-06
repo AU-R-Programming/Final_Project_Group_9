@@ -29,30 +29,19 @@ library(binclass)
 crop_data <- read.csv("crop.data.csv")
 head(crop_data)
 
-
 ```
 
 
 ## Data Preperation and Logistic Regression Using Numerical Optimization
 ```{r}
-print(head(crop_data))
-print(summary(crop_data))
-anyNA(crop_data)
+ 
 
-table(crop_data$yield)  # Check the unique values in yield
-y <- as.numeric(crop_data$yield)  # Adjust 'threshold' as needed
-#str(X)  # Check structure
-#print(head(X))  # Preview values
 X <- as.matrix(cbind(1, as.numeric(crop_data$density), 
                         as.numeric(crop_data$block), 
                         as.numeric(crop_data$fertilizer)))
+y <- as.numeric(crop_data$yield) 
 
-print(det(crossprod(X)))  # If determinant is 0, X'X is singular
 
-print(summary(crop_data))  # Check for missing/non-binary values
-
-X <- as.matrix(cbind(1, crop_data[, c("density", "block", "fertilizer")]))
-y <- as.numeric(crop_data$yield)  # Ensure binary outcome
 
 beta <- logistic_regression(X, y)
 print(beta)
@@ -110,7 +99,7 @@ browseVignettes("FinalProjectGroup9")
 
 
 
-
+## This is redundant. Still adding here. 
 ```{r}
 
 
