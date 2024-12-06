@@ -146,6 +146,7 @@ logistic_regression <- function(X, y, tol = 1e-6, max_iter = 100) {
   if (result$convergence != 0) warning("Optimization did not converge.")
   return(result$par)
 }
+
 ## 2. Bootstrapped Confidence Intervals
 bootstrap_CI <- function(X, y, n_bootstrap = 20, alpha = 0.05) {
   n <- nrow(X)
@@ -165,6 +166,7 @@ bootstrap_CI <- function(X, y, n_bootstrap = 20, alpha = 0.05) {
 
   return(data.frame(Lower = lower, Upper = upper))
 }
+
 ## 3. Confusion Matrix and Evaluation Metrics
 confusion_matrix_metrics <- function(y_true, y_pred, cutoff = 0.5) {
   # y_true: actual response values (0/1)
@@ -197,6 +199,7 @@ confusion_matrix_metrics <- function(y_true, y_pred, cutoff = 0.5) {
     DiagnosticOddsRatio = dor
   ))
 }
+
 ```
 
 
