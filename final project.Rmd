@@ -20,13 +20,13 @@ editor_options:
 ### First, ensure the required dataset is loaded. The dataset should be in the working directory as `crop.data.csv`.
 
 ```{r setup, include = FALSE}
-#knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE)
 library(devtools)
 library(binclass)
 ```
 
 ## Load the dataset
-```{r}
+```{r, message=FALSE}
 crop_data <- read.csv("crop.data.csv")
 head(crop_data)
 
@@ -34,8 +34,7 @@ head(crop_data)
 
 
 ## Data Preperation and Logistic Regression Using Numerical Optimization
-```{r}
- 
+```{r, message=FALSE}
 
 X <- as.matrix(cbind(1, as.numeric(crop_data$density), 
                         as.numeric(crop_data$block), 
@@ -51,13 +50,13 @@ print(beta)
 
 ## Bootstrapped Confidence Intervals
 ### Compute bootstrapped confidence intervals
-```{r}
+```{r, message=FALSE}
 ci <- bootstrap_CI(X, y, n_bootstrap = 100, alpha = 0.05)
 print(ci)
 ```
 
 ## Confusion Matrix and Metrics
-```{r}
+```{r, message=FALSE}
 # Simulate predicted probabilities for demonstration
 set.seed(123)
 y_pred <- runif(length(y))
