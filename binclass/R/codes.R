@@ -100,7 +100,6 @@ bootstrap_CI <- function(X, y, n_bootstrap = 20, alpha = 0.05) {
 
   return(data.frame(Lower = lower, Upper = upper))
 }
-
 ## 3. Confusion Matrix and Evaluation Metrics
 
 #' Confusion Matrix and Classification Metrics

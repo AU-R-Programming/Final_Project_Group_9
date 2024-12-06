@@ -20,12 +20,13 @@ editor_options:
 ### First, ensure the required dataset is loaded. The dataset should be in the working directory as `crop.data.csv`.
 
 ```{r setup, include = FALSE}
-#knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE)
+library(devtools)
 library(binclass)
 ```
 
 ## Load the dataset
-```{r}
+```{r, message=FALSE}
 crop_data <- read.csv("crop.data.csv")
 head(crop_data)
 
@@ -33,8 +34,7 @@ head(crop_data)
 
 
 ## Data Preperation and Logistic Regression Using Numerical Optimization
-```{r}
- 
+```{r, message=FALSE}
 
 X <- as.matrix(cbind(1, as.numeric(crop_data$density), 
                         as.numeric(crop_data$block), 
@@ -46,18 +46,17 @@ y <- as.numeric(crop_data$yield)
 beta <- logistic_regression(X, y)
 print(beta)
 
-
 ```
 
 ## Bootstrapped Confidence Intervals
 ### Compute bootstrapped confidence intervals
-```{r}
+```{r, message=FALSE}
 ci <- bootstrap_CI(X, y, n_bootstrap = 100, alpha = 0.05)
 print(ci)
 ```
 
 ## Confusion Matrix and Metrics
-```{r}
+```{r, message=FALSE}
 # Simulate predicted probabilities for demonstration
 set.seed(123)
 y_pred <- runif(length(y))
@@ -74,27 +73,27 @@ print(metrics)
 
 ### Steps to Include the Vignette in Your Package
 
-1. **Save the File**:
-   Save the vignette file as `vignettes/FinalProject.Rmd` in your package directory.
+<!-- 1. **Save the File**: -->
+<!--    Save the vignette file as `vignettes/FinalProject.Rmd` in your package directory. -->
 
-2. **Add Vignette Support**:
-   Run the following command to set up vignettes in your package:
+<!-- 2. **Add Vignette Support**: -->
+<!--    Run the following command to set up vignettes in your package: -->
 
-   ```R
-   usethis::use_vignette("FinalProject")
-Build and Check: Build your package using:
-R
+<!--    ```R -->
+<!--    usethis::use_vignette("FinalProject") -->
+<!-- Build and Check: Build your package using: -->
+<!-- R -->
 
-devtools::build()
-Check that the vignette renders correctly by running:
-R
+<!-- devtools::build() -->
+<!-- Check that the vignette renders correctly by running: -->
+<!-- R -->
 
-devtools::build_vignettes()
-Install the Package: Install the package and view the vignette:
-R
+<!-- devtools::build_vignettes() -->
+<!-- Install the Package: Install the package and view the vignette: -->
+<!-- R -->
 
-devtools::install()
-browseVignettes("FinalProjectGroup9")
+<!-- devtools::install() -->
+<!-- browseVignettes("FinalProjectGroup9") -->
 
 
 
