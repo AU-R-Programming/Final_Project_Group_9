@@ -201,13 +201,27 @@ confusion_matrix_metrics <- function(y_true, y_pred, cutoff = 0.5) {
 
 
 ```
+
+
+
+
 ## Add a Shiny App for interactive usage and build a pkgdown website
+
 ```{r}
+#Install this packagaes if not installed
+#install.packages("httr2")
+#devtools::install_deps(dependencies = TRUE)
+
+
+# Remove the pre existing file 
+file.remove("_pkgdown.yml") 
 usethis::use_pkgdown()
 pkgdown::build_site()
 
+
 ```
 
+## Running Shiny app
 ```{r}
 library(shiny)
 
@@ -366,3 +380,5 @@ server <- function(input, output, session) {
 shinyApp(ui = ui, server = server)
 
 ```
+
+
