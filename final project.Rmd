@@ -4,7 +4,7 @@ author: "Erika Richter, Indrajit Nandi, Waliu Lamidi"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Final Project}
+  %\VignetteIndexEntry{Final Project Group 9}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
@@ -22,19 +22,28 @@ editor_options:
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(devtools)
+
+```
+
+## The binclass package is developed and loaded
+```{r}
 library(binclass)
 ```
 
+
+
 ## Load the dataset
-```{r, message=FALSE}
+```{r, echo=FALSE }
 crop_data <- read.csv("crop.data.csv")
 head(crop_data)
 
 ```
 
 
+
+
 ## Data Preperation and Logistic Regression Using Numerical Optimization
-```{r, message=FALSE}
+```{r, message=FALSE, results='hide'}
 
 X <- as.matrix(cbind(1, as.numeric(crop_data$density), 
                         as.numeric(crop_data$block), 
@@ -48,11 +57,21 @@ print(beta)
 
 ```
 
+```{r, echo=FALSE, message=FALSE}
+head(beta, 7)
+```
+
 ## Bootstrapped Confidence Intervals
 ### Compute bootstrapped confidence intervals
-```{r, message=FALSE}
+```{r, message=FALSE, results='hide'}
 ci <- bootstrap_CI(X, y, n_bootstrap = 100, alpha = 0.05)
-print(ci)
+
+#print(ci)
+```
+
+
+```{r, echo=FALSE, message=FALSE}
+head(ci, 7)
 ```
 
 ## Confusion Matrix and Metrics
@@ -63,8 +82,14 @@ y_pred <- runif(length(y))
 
 # Compute confusion matrix and metrics
 metrics <- confusion_matrix_metrics(y, y_pred, cutoff = 0.5)
-print(metrics)
+#print(metrics)
 ```
+
+
+```{r, echo=FALSE, message=FALSE}
+head(metrics, 7)
+```
+
 
 ## Conclusion
 ### The binclass package provides robust tools for binary classification and performance evaluation using logistic regression. Use this vignette to understand its applications.
@@ -79,7 +104,7 @@ print(metrics)
 # Remove the pre existing file 
 #file.remove("_pkgdown.yml") 
 #usethis::use_pkgdown()
-pkgdown::build_site()
+#pkgdown::build_site()
 
 ```
 
@@ -242,5 +267,11 @@ server <- function(input, output, session) {
 shinyApp(ui = ui, server = server)
 
 ```
+
+This project presents a R project **binclass** of the data available at <**https://github.com/AU-R-Programming/Final_Project_Group_9.git**> 
+
+To install the package use this **devtools::install_github("AU-R-Programming/Final_Project_Group_9/binclass")**
+**library(binclass)**
+
 
 
