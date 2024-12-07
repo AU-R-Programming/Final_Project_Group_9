@@ -274,4 +274,9 @@ To install the package use this **devtools::install_github("AU-R-Programming/Fin
 **library(binclass)**
 
 
+## References
+
+1. **https://r-pkgs.org/vignettes.html**
+2. **https://shiny.posit.co/r/getstarted/build-an-app/hello-shiny/user-interface.html**
+
 
