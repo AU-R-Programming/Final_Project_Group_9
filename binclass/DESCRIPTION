@@ -1,15 +1,13 @@
 Package: binclass
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Tools for Logistic Regression and Classification Performance
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: 
+    person("Erica Indrajit", "Waliu", email = "izn0008@auburn.edu", role = c("aut", "cre"))
+Description: A package providing tools for logistic regression and classification performance metrics.
+License: MIT
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.2
-Imports:
-    boot,
-    ggplot2
+URL: https://AU-R-Programming.github.io/Final_Project_Group_9
+BugReports: https://github.com/AU-R-Programming/Final_Project_Group_9/issues

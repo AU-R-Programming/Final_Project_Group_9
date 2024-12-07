@@ -15,6 +15,8 @@
 #' Perform logistic regression to estimate the coefficient vector (\eqn{\beta})
 #' using numerical optimization of the negative log-likelihood function.
 #'
+#' @title Logistic Regression Using Numerical Optimization
+#' @description Perform logistic regression using numerical optimization techniques.
 #' @param X A numeric matrix of predictors (dimensions: n x p).
 #' @param y A numeric vector of responses (length: n). Values must be 0 or 1.
 #' @param tol A numeric value for the convergence tolerance. Default is 1e-6.
