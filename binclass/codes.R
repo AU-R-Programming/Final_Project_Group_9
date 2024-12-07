@@ -2,9 +2,9 @@
 
 ## created package FinalProjectGroup9.R
 
-#' @import roxygen2
-#' @import boot
-#' @import ggplot2
+@import roxygen2
+@import boot
+@import ggplot2
 
 # Implement Core Functionality
 
@@ -29,39 +29,39 @@
 #' print(beta)
 #' @export
 logistic_regression <- function(X, y, tol = 1e-6, max_iter = 100) {
-  X_t <- t(X)
-  beta_init <- tryCatch(
-    solve(X_t %*% X) %*% X_t %*% y,
-    error = function(e) rep(0, ncol(X))
-  )
-  print(beta_init)  # Check initial beta values
+  # X: matrix of predictors (n x p)
+  # y: response vector (n x 1)
+  # tol: tolerance for convergence
+  # max_iter: maximum iterations for the optimization
 
+  # Initial values for beta from least squares estimate
+  X_t <- t(X)
+  beta_init <- solve(X_t %*% X) %*% X_t %*% y
+
+  # Sigmoid function
   sigmoid <- function(x) {
-    p <- 1 / (1 + exp(-x))
-    p <- pmax(p, 1e-10)
-    p <- pmin(p, 1 - 1e-10)
-    return(p)
+    1 / (1 + exp(-x))
   }
 
+  # Negative log-likelihood function
   nll <- function(beta) {
     p <- sigmoid(X %*% beta)
-    print(p)  # Check predicted probabilities
     -sum(y * log(p) + (1 - y) * log(1 - p))
   }
 
+  # Gradient of the negative log-likelihood
   gradient <- function(beta) {
     p <- sigmoid(X %*% beta)
-    t(X) %*% (y - p)
+    grad <- t(X) %*% (y - p)
+    return(grad)
   }
 
-  result <- optim(
-    beta_init, nll, gr = gradient, method = "BFGS",
-    control = list(maxit = max_iter, reltol = tol)
-  )
+  # Use optim() function for numerical optimization
+  result <- optim(beta_init, nll, gr = gradient, method = "BFGS", control = list(maxit = max_iter, reltol = tol))
 
-  if (result$convergence != 0) warning("Optimization did not converge.")
-  return(result$par)
+  return(result$par) # The estimated beta
 }
+
 ## 2. Bootstrapped Confidence Intervals
 
 #' Bootstrapped Confidence Intervals for Logistic Regression Coefficients
@@ -82,6 +82,7 @@ logistic_regression <- function(X, y, tol = 1e-6, max_iter = 100) {
 #' ci <- bootstrap_CI(X, y, n_bootstrap = 100, alpha = 0.05)
 #' print(ci)
 #' @export
+
 bootstrap_CI <- function(X, y, n_bootstrap = 20, alpha = 0.05) {
   n <- nrow(X)
   boot_betas <- matrix(NA, nrow = n_bootstrap, ncol = ncol(X))
@@ -100,6 +101,7 @@ bootstrap_CI <- function(X, y, n_bootstrap = 20, alpha = 0.05) {
 
   return(data.frame(Lower = lower, Upper = upper))
 }
+
 ## 3. Confusion Matrix and Evaluation Metrics
 
 #' Confusion Matrix and Classification Metrics
@@ -118,6 +120,7 @@ bootstrap_CI <- function(X, y, n_bootstrap = 20, alpha = 0.05) {
 #' metrics <- confusion_matrix_metrics(y_true, y_pred, cutoff = 0.5)
 #' print(metrics)
 #' @export
+
 confusion_matrix_metrics <- function(y_true, y_pred, cutoff = 0.5) {
   # y_true: actual response values (0/1)
   # y_pred: predicted probabilities (between 0 and 1)

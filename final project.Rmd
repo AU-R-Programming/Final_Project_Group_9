@@ -95,8 +95,6 @@ head(metrics, 7)
 ### The binclass package provides robust tools for binary classification and performance evaluation using logistic regression. Use this vignette to understand its applications.
 
 ## Shiny App for interactive usage and build a pkgdown website
-
-#first run this and this will open the _pkgdown.yml file. Keep it like that and come back to the code to run the next chunk.
 ```{r}
 #Install this packages if not installed
 #install.packages("httr2")
@@ -110,13 +108,9 @@ head(metrics, 7)
 
 ```
 
-
 ```{r}
 #pkgdown::build_site()
 ```
-
-
-
 ## Running Shiny app
 ```{r}
 library(shiny)
@@ -287,5 +281,6 @@ To install the package use this **devtools::install_github("AU-R-Programming/Fin
 
 1. **https://r-pkgs.org/vignettes.html**
 2. **https://shiny.posit.co/r/getstarted/build-an-app/hello-shiny/user-interface.html**
+
 
 

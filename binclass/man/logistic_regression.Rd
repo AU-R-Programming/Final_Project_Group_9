@@ -19,7 +19,8 @@ logistic_regression(X, y, tol = 1e-06, max_iter = 100)
 A numeric vector of estimated coefficients (\eqn{\beta}).
 }
 \description{
-Perform logistic regression using numerical optimization techniques.
+Perform logistic regression to estimate the coefficient vector (\eqn{\beta})
+using numerical optimization of the negative log-likelihood function.
 }
 \examples{
 # Simulate data
