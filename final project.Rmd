@@ -281,6 +281,8 @@ To install the package use this **devtools::install_github("AU-R-Programming/Fin
 
 1. **https://r-pkgs.org/vignettes.html**
 2. **https://shiny.posit.co/r/getstarted/build-an-app/hello-shiny/user-interface.html**
+3. **https://r-statistics.co/Linear-Regression.html**
+4. **https://developer.ibm.com/tutorials/awb-confusion-matrix-r/**
 
 
 
